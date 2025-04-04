@@ -1,0 +1,28 @@
+account_id: ""
+project_slug: ""
+actions:
+  # Format: <account_id>/<project_slug>
+  # Docs https://docs.tenderly.co/account/projects/account-project-slug
+  cook/tenderly-token-alerts:
+    runtime: v2
+    sources: actions
+    specs:
+      # Display name shown in the Tenderly UI
+      token-alerts:
+        description: Monitor token balances of multiple addresses and alert when below thresholds.
+        execution_type: parallel # Options: parallel, sequential
+        function: tokenAlerts:tokenAlertsFn # Format: <file_name>:<function_name>
+        trigger:
+          type: transaction # Options: block, periodic, webhook, transaction
+          transaction:
+            status:
+              - mined
+            filters:
+              # Filter: Optimism (network ID 10), successful txs from CRT relayer
+              - network: 10
+                status: success # Options: success, fail
+                from: 0xFf32609a2Ee397857841C46d96Edb85F0Ac64d61
+              # Filter: Arbitrum (network ID 42161), successful txs from ClaimableLink contract signer
+              - network: 42161
+                status: success # Options: success, fail
+                from: 0x23Bc2B107C7C7C04F2bA1d345376145adAdDFA35
