@@ -111,6 +111,15 @@ tenderly actions deploy
 - The `actions/tokenAlerts.ts` script monitors the CRT relayer's token balances.
 - If a token balance falls below the defined threshold, an alert is sent to the configured Slack channel.
 
+## Test
+
+- Run Tests
+
+```
+### Navigate to the actions directory and execute the tests
+(cd actions/ && npm run test)
+```
+
 ---
 
 This guide ensures a smooth setup and deployment process for monitoring cross-rollup transfers using Tenderly Web3 Actions.

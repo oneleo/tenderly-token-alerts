@@ -1,7 +1,8 @@
 {
   "name": "actions",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "ts-mocha --timeout 3000 test/**/*.test.ts"
   },
   "devDependencies": {
     "@tenderly/actions-test": "^0.2.114",
